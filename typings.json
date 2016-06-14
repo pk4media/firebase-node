@@ -1,0 +1,6 @@
+{
+  "name": "firebase-node",
+  "main": "index.d.ts",
+  "dependencies": {
+  }
+}
