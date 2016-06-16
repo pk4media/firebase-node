@@ -245,7 +245,7 @@ declare namespace firebase {
       /**
        * Generates a new child location using a unique key and returns its reference.
        */
-      push(value: any, onComplete?: ErrorCallback): ThenableReference;
+      push(value?: any, onComplete?: ErrorCallback): ThenableReference<void>;
 
       /**
        * Writes multiple values to the database at once.
@@ -280,7 +280,7 @@ declare namespace firebase {
       onDisconnect(): OnDisconnect;
     }
 
-    export interface ThenableReference extends Reference { }
+    export interface ThenableReference<T> extends Reference, Promise<T> { }
 
     interface OnDisconnect {
       set(value: any, onComplete?: ErrorCallback): Promise<void>;
