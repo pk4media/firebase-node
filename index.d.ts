@@ -248,26 +248,31 @@ declare namespace firebase {
       push(value: any, onComplete?: ErrorCallback): ThenableReference;
 
       /**
+       * Writes multiple values to the database at once.
+       */
+      update(values: Object, onComplete?: ErrorCallback): Promise<void>;
+
+      /**
        * Remove the data at this database location.
        */
-      remove(onComplete?: ErrorCallback): firebase.Promise<void>;
+      remove(onComplete?: ErrorCallback): Promise<void>;
 
       /**
        * Write data to this database location.
        */
-      set(value: any, onComplete?: ErrorCallback): firebase.Promise<void>;
+      set(value: any, onComplete?: ErrorCallback): Promise<void>;
 
-      setPriority(priority: number | string, onComplete?: ErrorCallback): firebase.Promise<void>;
+      setPriority(priority: number | string, onComplete?: ErrorCallback): Promise<void>;
 
-      setWithPriority(value: any, priority: number | string, onComplete?: ErrorCallback): firebase.Promise<void>;
+      setWithPriority(value: any, priority: number | string, onComplete?: ErrorCallback): Promise<void>;
 
       /**
        * Atomically modifies the data at this location.
        */
-      transaction(transactionUpdate: (data: any) => any): firebase.Promise<{comitted: boolean, snapshot: DataSnapshot}>;
-      transaction(transactionUpdate: (data: any) => any, onComplete: (error: any, comitted: boolean, snapshot: DataSnapshot) => void): firebase.Promise<{comitted: boolean, snapshot: DataSnapshot}>;
-      transaction(transactionUpdate: (data: any) => any, onComplete: (error: any, comitted: boolean, snapshot: DataSnapshot) => void, applyLocally: boolean): firebase.Promise<{comitted: boolean, snapshot: DataSnapshot}>;
-      transaction(transactionUpdate: (data: any) => any, applyLocally: boolean): firebase.Promise<{comitted: boolean, snapshot: DataSnapshot}>;
+      transaction(transactionUpdate: (data: any) => any): Promise<{comitted: boolean, snapshot: DataSnapshot}>;
+      transaction(transactionUpdate: (data: any) => any, onComplete: (error: any, comitted: boolean, snapshot: DataSnapshot) => void): Promise<{comitted: boolean, snapshot: DataSnapshot}>;
+      transaction(transactionUpdate: (data: any) => any, onComplete: (error: any, comitted: boolean, snapshot: DataSnapshot) => void, applyLocally: boolean): Promise<{comitted: boolean, snapshot: DataSnapshot}>;
+      transaction(transactionUpdate: (data: any) => any, applyLocally: boolean): Promise<{comitted: boolean, snapshot: DataSnapshot}>;
 
       /**
        * Returns an OnDisconnect
@@ -278,15 +283,15 @@ declare namespace firebase {
     export interface ThenableReference extends Reference { }
 
     interface OnDisconnect {
-      set(value: any, onComplete?: ErrorCallback): firebase.Promise<void>;
+      set(value: any, onComplete?: ErrorCallback): Promise<void>;
 
-      setWithPriority(value: any, priority: number | string, onComplete?: ErrorCallback): firebase.Promise<void>;
+      setWithPriority(value: any, priority: number | string, onComplete?: ErrorCallback): Promise<void>;
 
-      update(value: Object, onComplete?: ErrorCallback): firebase.Promise<void>;
+      update(value: Object, onComplete?: ErrorCallback): Promise<void>;
 
-      remove(onComplete?: ErrorCallback): firebase.Promise<void>;
+      remove(onComplete?: ErrorCallback): Promise<void>;
 
-      cancel(onComplete?: ErrorCallback): firebase.Promise<void>;
+      cancel(onComplete?: ErrorCallback): Promise<void>;
     }
 
     export interface DataSnapshot {
