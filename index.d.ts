@@ -269,10 +269,10 @@ declare namespace firebase {
       /**
        * Atomically modifies the data at this location.
        */
-      transaction(transactionUpdate: (data: any) => any): Promise<{comitted: boolean, snapshot: DataSnapshot}>;
-      transaction(transactionUpdate: (data: any) => any, onComplete: (error: any, comitted: boolean, snapshot: DataSnapshot) => void): Promise<{comitted: boolean, snapshot: DataSnapshot}>;
-      transaction(transactionUpdate: (data: any) => any, onComplete: (error: any, comitted: boolean, snapshot: DataSnapshot) => void, applyLocally: boolean): Promise<{comitted: boolean, snapshot: DataSnapshot}>;
-      transaction(transactionUpdate: (data: any) => any, applyLocally: boolean): Promise<{comitted: boolean, snapshot: DataSnapshot}>;
+      transaction(transactionUpdate: (data: any) => any): Promise<{committed: boolean, snapshot: DataSnapshot}>;
+      transaction(transactionUpdate: (data: any) => any, onComplete: (error: any, committed: boolean, snapshot: DataSnapshot) => void): Promise<{committed: boolean, snapshot: DataSnapshot}>;
+      transaction(transactionUpdate: (data: any) => any, onComplete: (error: any, committed: boolean, snapshot: DataSnapshot) => void, applyLocally: boolean): Promise<{committed: boolean, snapshot: DataSnapshot}>;
+      transaction(transactionUpdate: (data: any) => any, applyLocally: boolean): Promise<{committed: boolean, snapshot: DataSnapshot}>;
 
       /**
        * Returns an OnDisconnect
