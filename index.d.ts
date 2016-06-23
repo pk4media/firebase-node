@@ -73,6 +73,20 @@ declare namespace firebase {
   }
 
   namespace auth {
+    interface IClaims {
+      [claim: string]: any;
+    }
+
+    interface IToken {
+      iss: string;
+      sub: string;
+      aud: string;
+      iat: number;
+      exp: number;
+      uid: string;
+      claims: IClaims;
+    }
+
     interface Auth {
       /**
        * The App associated with the Auth service instance.
@@ -82,13 +96,13 @@ declare namespace firebase {
       /**
        * Creates a new custom token (JWT) that can be sent back to a client to use with signInWithCustomToken.
        */
-      createCustomToken(uid: string, developerClaims?: Object): string;
+      createCustomToken(uid: string, developerClaims?: IClaims): string;
 
       /**
        * Verifies a ID token (JWT). Returns a Promise with the tokens claims.
        * Rejects the promise if the token could not be verified.
        */
-      verifyIdToken(idToken: string): Promise<Object>;
+      verifyIdToken(idToken: string): Promise<IToken>;
     }
 
 
@@ -221,7 +235,7 @@ declare namespace firebase {
     export interface Reference extends Query {
       /**
        * The last part of the current path.
-       * The key of the root Reference is null. 
+       * The key of the root Reference is null.
        */
       key: string;
 
