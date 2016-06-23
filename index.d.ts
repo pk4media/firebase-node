@@ -207,7 +207,7 @@ declare namespace firebase {
       /**
        * Listens for exactly one event of the specified event type, and then stops listening.
        */
-      once(eventType?: string, callback?: DataSnapshotCallback): Promise<any>;
+      once(eventType?: string, callback?: DataSnapshotCallback): Promise<DataSnapshot>;
 
       /**
        * Generates a new Query object ordered by the specified child key.
