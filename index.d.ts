@@ -22,12 +22,12 @@ declare namespace firebase {
      * A Promise represents an eventual (asynchronous) value. A Promise should (eventually) either resolve or reject.
      * When it does, it will call all the callback functions that have been assigned via the .then() or .catch() methods.
      */
-    constructor(resolver: (resolve?: (value: T) => void, reject?: (error: Error) => void) => void);
+    constructor(resolver: (resolve?: (value: T) => void, reject?: (error: any) => void) => void);
 
     /**
      * Assign callback functions called when the Promise either resolves, or is rejected.
      */
-    then<R>(onResolve?: (value: T) => R, onReject?: (error: Error) => any): Promise<R>;
+    then<R>(onResolve?: (value: T) => R | PromiseLike<R>, onReject?: (error: any) => void): Promise<R>;
 
     /**
      * Assign a callback when the Promise rejects.
